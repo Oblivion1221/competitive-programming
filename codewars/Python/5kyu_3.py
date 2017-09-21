@@ -15,9 +15,11 @@ def ex_euler(n):
         zk = 1 + 0.5 * math.exp(-4 * xk) - 0.5 * math.exp(-2 * xk)
         Z.append(zk)
 
-        print(Y, Z)
+        # print(Y, Z)
 
     for i in range(len(Y)):
         sm += abs(Y[i] - Z[i]) / Z[i]
 
     return int(sm/(n+1)*1000000) / 1000000.0
+
+print(ex_euler(200000))
