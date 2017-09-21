@@ -22,4 +22,4 @@ def ex_euler(n):
     for i in range(len(Y)):
         sm += abs(Y[i] - Z[i]) / Z[i]
 
-    return float('%.6f' % (sm/(n+1)))
+    return int(sm/(n+1)*1000000) / 1000000.0
