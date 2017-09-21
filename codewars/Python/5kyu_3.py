@@ -1,9 +1,7 @@
 import math
 def ex_euler(n):
     h = 1.0 / n
-    xk = 0
-    yk = 1
-    sm = 0
+    xk, yk, sm = 0, 1, 0
     Y = [1.0]
     Z = [1.0]
 
