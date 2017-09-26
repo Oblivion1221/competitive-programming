@@ -1,15 +1,20 @@
 fn my_first_interpreter(code: &str) -> String {
-    println!("input = {}", code);
+    // println!("input = {}", code);
     let code: Vec<&str> = code.split("").collect();
+
     let mut rec = 0;
-    let mut res = String::from("");
+
+    let mut res = String::new();
+
     for i in 0..code.len() {
+
         if code[i] == "+" {
             rec += 1;
         } else if code[i] == "." {
             res.push_str(String::from_utf16(&[rec as u16]).unwrap().as_str());
-            println!("res = {}", res);
+            // println!("res = {}", res);
         }
+        
         if rec >= 255 {
             rec = -1;
         }
