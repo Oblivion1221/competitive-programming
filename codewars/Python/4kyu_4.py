@@ -13,8 +13,8 @@ def automorphic(p):
             m6 = 10 ** j + 1 - m5
             # print("n = " + str(n) + "\n[t, m5, m6] = " + str([t,m5,m6]) + " ")
             # print("[a, b, c] = " + str([a, b, c]))
-            res.append(b)
-            res.append(c)
+            res.append(m5)
+            res.append(m6)
             # print("res = " + str(res))
     return sorted(list(set(res)))
 
