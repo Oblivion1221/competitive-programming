@@ -22,7 +22,7 @@ def green(arg):
     p = 0
     while 2 ** p < arg:
         p += 1
-    
+
     res = automorphic(p)
     # print(res)
     return res[arg - 1]
@@ -32,6 +32,7 @@ def green(arg):
 #     f.write(str(green(i)) + "\n")
 # f.close()
 #
+# 
 # print(green(1))
 # print(green(2))         
 # print(green(3))         
@@ -42,6 +43,7 @@ def green(arg):
 # print(green(1322))         
 # print(green(2544))                 
 # print(green(5000))
+# 
 # 
 # 
 # Trivial:
