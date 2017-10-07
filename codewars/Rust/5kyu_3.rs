@@ -18,7 +18,7 @@ impl Vector {
         (self.i * self.i + self.j * self.j + self.k * self.k).sqrt()
     }
 
-    fn get_i(&self) -> Vector {
+    fn get_i() -> Vector {
         Vector {
             i: 1.0,
             j: 0.0,
@@ -26,7 +26,7 @@ impl Vector {
         }
     }
 
-    fn get_j(&self) -> Vector {
+    fn get_j() -> Vector {
         Vector {
             i: 0.0,
             j: 1.0,
@@ -34,7 +34,7 @@ impl Vector {
         }
     }
 
-    fn get_k(&self) -> Vector {
+    fn get_k() -> Vector {
         Vector {
             i: 0.0,
             j: 0.0,
@@ -74,7 +74,12 @@ impl Vector {
         if self.is_zero() || v.is_zero() {
             return false;
         } else {
-            
+            let i0 = self.cross(v).i.abs();
+            let j0 = self.cross(v).j.abs();
+            let k0 = self.cross(v).k.abs();
+            return (i0.floor() == 0.0 && i0 - i0.floor() <= 0.001) &&
+                    (j0.floor() == 0.0 && j0 - j0.floor() <= 0.001) &&
+                    (k0.floor() == 0.0 && k0 - k0.floor() <= 0.001)
         }
     }
 
@@ -83,7 +88,12 @@ impl Vector {
     }
 
     fn is_perpendicular_to(&self, v: Vector) -> bool {
-        self.dot(v).floor() == 0.0 && (self.dot(v) - self.dot(v).floor()).abs() <= 0.001
+        if self.is_zero() || v.is_zero() {
+            return false;
+        } else {
+            let res = self.dot(v).abs();
+            return res.floor() == 0.0 && res - res.floor() <= 0.001;
+        }
     }
 
     fn normalize(&self) -> Vector {
