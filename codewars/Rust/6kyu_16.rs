@@ -1,3 +1,5 @@
+// MiniBitMove
+
 fn interpreter(tape: &str, data: &str) -> String {
     let mut data: Vec<&str> = data.split("").collect();
     let mut res = String::new();
