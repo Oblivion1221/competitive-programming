@@ -11,7 +11,13 @@ fn interpreter(tape: &str, data: &str) -> String {
                     data[cnt] = "1";
                 }
             },
-            '0' => cnt += 1,
+            '0' => {
+                if cnt < data.len() - 2 as usize {
+                    cnt += 1;
+                } else {
+                    break;
+                }
+            },
             _ => (),
         }
     }
@@ -19,4 +25,8 @@ fn interpreter(tape: &str, data: &str) -> String {
         res.push_str(s);
     }
     res
+}
+
+fn main() {
+    println!("{}", interpreter("10", "1010101"));
 }
